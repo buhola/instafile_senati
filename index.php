@@ -14,7 +14,10 @@ try {
         if (isset($_FILES['archivo'])) {
             $archivo = $_FILES['archivo'];
 
-            if (move_uploaded_file($archivo['tmp_name'], $carpetaRuta . '/' . $archivo['name'])) {
+            // Reemplazar los espacios en blanco por guiones bajos en el nombre del archivo
+            $nuevoNombreArchivo = str_replace(' ', '_', $archivo['name']);
+
+            if (move_uploaded_file($archivo['tmp_name'], $carpetaRuta . '/' . $nuevoNombreArchivo)) {
                 $subido = true;
                 $mensaje = "Archivo subido con éxito.";
             } else {
