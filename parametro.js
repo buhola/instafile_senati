@@ -1,4 +1,3 @@
-
 // Obtén la URL actual
 const urlActual = window.location.href;
 
@@ -14,25 +13,8 @@ if (!carpetaNombre) {
     // Redirige a la nueva URL con el parámetro 'nombre'
     window.location.href = urlConParametro;
 } else {
-    // Extrae el valor del parámetro de la URL
-    const parametros = new URLSearchParams(window.location.search);
-    const carpetaNombre = parametros.get("nombre");
-
     // Llama a la función para crear la carpeta con el nombre obtenido
-    function crearCarpeta(carpetaNombre) {
-    $.ajax({
-        url: 'crearCarpeta.php', // Ruta del archivo PHP que crea la carpeta
-        type: 'POST', // Puedes usar POST o GET según tus necesidades
-        data: { nombreCarpeta: carpetaNombre }, // Envía el nombre de la carpeta como datos
-        success: function(response) {
-            console.log('Carpeta creada.'); // Mensaje de éxito (puedes personalizarlo)
-        },
-        error: function() {
-            console.log('Error al crear la carpeta.'); // Mensaje de error (puedes personalizarlo)
-        }
-    });
-}
-    
+    crearCarpeta(carpetaNombre);
 }
 
 // Función para generar un número aleatorio de 3 dígitos
@@ -46,40 +28,22 @@ function generarCadenaAleatoria() {
     return cadenaAleatoria;
 }
 
+// Función para crear una carpeta utilizando AJAX
+function crearCarpeta(carpetaNombre) {
+    $.ajax({
+        url: 'crearCarpeta.php', // Ruta del archivo PHP que crea la carpeta
+        type: 'POST', // Puedes usar POST o GET según tus necesidades
+        data: { nombreCarpeta: carpetaNombre }, // Envía el nombre de la carpeta como datos
+        success: function(response) {
+            console.log('Carpeta creada.'); // Mensaje de éxito (puedes personalizarlo)
+        },
+        error: function() {
+            console.log('Error al crear la carpeta.'); // Mensaje de error (puedes personalizarlo)
+        }
+    });
+}
 
-// //BARRA DE PROGRESO 
-// function uploadFile(carpetaRuta, inputId) {
-//   var archivoInput = document.getElementById(inputId);
-//   var archivo = archivoInput.files[0];
-//   var progressBar = document.getElementById('progressBar');
-
-//   var formData = new FormData();
-//   formData.append('archivo', archivo);
-
-//   var xhr = new XMLHttpRequest();
-
-//   xhr.upload.onprogress = function (event) {
-//       if (event.lengthComputable) {
-//           var percentComplete = (event.loaded / event.total) * 100;
-//           progressBar.value = percentComplete;
-//       }
-//   };
-
-//   xhr.onload = function () {
-//       if (xhr.status === 200) {
-//           console.log('Archivo subido con éxito');
-//           // Puedes realizar acciones adicionales después de la carga aquí
-//       } else {
-//           console.error('Error al subir el archivo');
-//       }
-//   };
-
-//   xhr.open('POST', 'upload.php', true);
-//   xhr.send(formData);
-// }
-
-
-//DROP AREA
+// DROP AREA
 
 // Obtén la zona de arrastre y el formulario
 const dropArea = document.getElementById('drop-area');
@@ -105,11 +69,21 @@ dropArea.addEventListener('drop', (e) => {
 // Función para manejar el archivo seleccionado
 function handleFile(file) {
     if (file) {
-        // Realiza alguna acción, como mostrar el nombre del archivo
-        console.log('Archivo seleccionado:', file.name);
+        // Código para mostrar el nombre del archivo y otras acciones
 
-        // También puedes realizar otras acciones, como subir el archivo al servidor
-        // Puedes agregar aquí el código para subir el archivo si lo deseas
+        // Obtener el elemento de la barra de progreso
+        const progressBar = document.querySelector('.file-progress');
+
+        // Crear una instancia de XMLHttpRequest para subir el archivo
+        const xhr = new XMLHttpRequest();
+
+        // Actualizar la barra de progreso en el evento de carga
+        xhr.upload.addEventListener('progress', (event) => {
+            if (event.lengthComputable) {
+                const percentComplete = (event.loaded / event.total) * 100;
+                progressBar.value = percentComplete;
+            }
+        });
     }
 }
 
@@ -125,5 +99,3 @@ Form.addEventListener('submit', (e) => {
         alert('Por favor, seleccione un archivo primero.');
     }
 });
-
-//progres bar 
