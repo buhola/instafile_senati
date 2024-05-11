@@ -1,160 +1,221 @@
+/* optional google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", sans-serif;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
 }
+
 body {
-  background: #f5f7fd;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #020f3c;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 40px;
+    background: #7494EC; /* Cambio de color de fondo */
+    font-size: 14px;
+    font-weight: 400;
+    color: #020f3c;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
 }
 
 .content {
-  text-align: center;
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
-  border-radius: 20px;
-  width: 900px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 20px;
+    width: 600px; /* Reducir el ancho a 800px */
 }
 
 h1 {
-  font-weight: 600;
-  font-size: 40px;
-  text-align: center;
-  margin: 20px;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
 }
 
 h3 span {
-  color: #0730c5;
+    color: #0730c5;
 }
-.container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  height: 450px;
-  max-width: 900px;
-  margin-top: 20px;
 
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Asegurar que los elementos se apilen verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    margin-top: 20px;
 }
 
 .drop-area {
-  width: 435px;
-  text-align: center;
-  flex: 1;
-  margin: 10px; /* Espacio entre los contenedores */
-  border: 2px dashed #0730c5;
-  box-sizing: border-box; /* El borde se incluye en el ancho y alto del contenedor */
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: all .1s ease-in;
-}
-.drop-area:hover{
-  scale: 0.995;
-  opacity: 0.6;
-  filter: brightness(0.5);
+    width: 100%; /* Ajuste para ocupar todo el ancho del contenedor */
+    min-height: 200px; /* Ajuste de la altura mínima */
+    margin: 10px; /* Espacio entre los contenedores */
+    border: 2px dashed #0730c5;
+    border-radius: 15px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.1s ease-in;
 }
 
-#form{
-  width: 350px;
-  height: 400px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.file-input{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 1;
+.drop-area:hover {
+    transform: scale(0.995); /* Actualización de la escala en la animación */
+    opacity: 0.6;
+    filter: brightness(0.8);
+    -webkit-filter: brightness(0.8);
 }
 
-form p{
-  color: #0730c5;
+#form {
+    width: 350px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.Btn{
-  background-color: #0730c5;
-  z-index: 2; /*Superpone en el index*/
-  display: flex;
-  align-items: center;
-  height: 30px;
-  width: 150px;
-  justify-content: center;
-  text-align: center;
-  border-radius: 10px;
-  cursor: pointer;
-  color: white;
-  border: none;
-  
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+form p {
+    color: #0730c5;
+}
+
+.Btn {
+    background-color: #0730c5;
+    z-index: 2; /*Superpone en el index*/
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 150px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    border: none;
 }
 
 .container2 {
-  flex: 1;
-  margin: 10px; /* Espacio entre los contenedores */
-  box-sizing: border-box; /* El borde se incluye en el ancho y alto del contenedor */
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 5px 20px;
-  background-color: #f5f7fd;
-  max-height: 430px;
-  overflow-y: auto;
-  width: 435px;
+    width: 100%; /* Ocupar todo el ancho disponible */
+    margin-top: 20px; /* Espacio entre el drop-area y el container2 */
+    padding: 10px; /* Añadir un poco de espacio interno */
+    background-color: #f5f7fd;
+    border-radius: 15px;
+    max-height: 430px;
+    overflow-y: auto;
 }
 
-.btn_delete{
+.btn_delete {
     border: none;
     padding: 0;
     background: none;
     cursor: pointer;
 }
-.btn_delete:hover{
-  opacity: 0.75;
+
+.btn_delete:hover {
+    opacity: 0.75;
 }
+
 button.btn_delete svg {
-  stroke: #ff2b00;
+    stroke: #ff2b00;
 }
 
-.archivos_subidos{
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  align-items: center; 
+.archivos_subidos {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    align-items: center;
 }
+
 .archivos_subidos:hover {
-  box-shadow: 0 0 10px -2px #d3d6f6;
-}
-.archivos_subidos div {
-  overflow: hidden;
+    box-shadow: 0 0 10px -2px #d3d6f6;
 }
 
-.beta{
-  background: #23da95;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  display: inline-block;
-  padding: 0 12px;
+.archivos_subidos div {
+    overflow: hidden;
+}
+
+.beta {
+    background: #23da95;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 0 12px;
+}
+
+/* Cambiar el color de la barra de progreso */
+.file-progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #fae900ec;
+}
+
+/* Cambiar el color de la barra de progreso cuando está completa */
+.file-progress[value="100"]::-webkit-progress-value {
+    background-color: #00cc66; /* Color verde */
+}
+
+/* Cambiar el color del icono de verificación */
+.upload-status svg {
+    fill: #00cc66; /* Color verde */
+}
+
+.progress-container {
+    width: 100%;
+    margin-top: 5px;
+    background-color: #11fb003e; /* Color de fondo */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+.file-progress {
+    height: 10px; /* Altura de la barra de progreso */
+    background-color: #04fe1164; /* Color de la barra de progreso (rojo) */
+    border-radius: 5px; /* Borde redondeado */
+    width: 0; /* Ancho inicial (0%) */
+    transition: width 0.3s ease-in-out; /* Animación de la barra de progreso */
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+    .content {
+        width: 80%; /* Cambia el ancho a un porcentaje para que sea adaptable */
+        max-width: 800px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado en pantallas grandes */
+    }
+}
+
+/* Estilos para pantallas pequeñas (como teléfonos) */
+@media screen and (max-width: 767px) {
+    .content {
+        width: 90%; /* Cambia el ancho a un porcentaje para que sea adaptable */
+    }
+
+    .container {
+        margin-top: 10px; /* Reducir el espacio entre los elementos en pantallas pequeñas */
+    }
+
+    .drop-area,
+    #form {
+        width: 90%; /* Ajustar el ancho de los elementos principales para que se vean bien en pantallas pequeñas */
+    }
+
+    .Btn {
+        width: 120px; /* Reducir el ancho del botón en pantallas pequeñas para un aspecto más proporcionado */
+    }
 }
