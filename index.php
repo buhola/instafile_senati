@@ -82,8 +82,12 @@ try {
                         echo " <h3 style='margin-bottom:10px;'>Archivos Subidos:</h3>";
 
                         foreach ($files as $file) {
+
+                        //Reemplazar los espacios en blanco por (_)
+                        $file_replace=str_replace(' ','_', $files);
+
                             echo "<div class='archivos_subidos'>
-                            <div><a href='$carpetaRuta/$file' download class='boton-descargar'>$file</a></div>
+                            <div><a href='$carpetaRuta/$file' download class='boton-descargar'>$file_replace</a></div>
                             <div>
                             <form action='' method='POST' style='display:inline;'>
                                 <input type='hidden' name='eliminarArchivo' value='$file'>
