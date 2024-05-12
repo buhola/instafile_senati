@@ -84,7 +84,7 @@ try {
                         foreach ($files as $file) {
 
                         //Reemplazar los espacios en blanco por (_)
-                        $file_replace=str_replace(' ','_', $files);
+                        $file_replace=str_replace(' ','_', $file);
 
                             echo "<div class='archivos_subidos'>
                             <div><a href='$carpetaRuta/$file' download class='boton-descargar'>$file_replace</a></div>
