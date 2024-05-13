@@ -16,7 +16,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin-top: 40px;
-  background-image: url('bg.png'); 
+  background-image: url('/assets/bg.png'); 
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
   background-position: center; /* Centra la imagen */
