@@ -103,4 +103,21 @@ try {
                                         <path d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3' />
                                     </svg>
                                 </button>
-                            </
+                            </form>
+                        </div>
+                        </div>";
+                        }
+                    } else {
+                        echo "No se han subido archivos.";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="parametro.js"></script> -->
+
+</body>
+
+</html>
