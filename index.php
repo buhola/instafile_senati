@@ -14,7 +14,10 @@ try {
         if (isset($_FILES['archivo'])) {
             $archivo = $_FILES['archivo'];
 
-            if (move_uploaded_file($archivo['tmp_name'], $carpetaRuta . '/' . $archivo['name'])) {
+            // Reemplazar espacios en blanco por guiones bajos en el nombre del archivo
+            $nombreArchivo = str_replace(' ', '_', $archivo['name']);
+
+            if (move_uploaded_file($archivo['tmp_name'], $carpetaRuta . '/' . $nombreArchivo)) {
                 $subido = true;
                 $mensaje = "Archivo subido con éxito.";
             } else {
@@ -82,8 +85,11 @@ try {
                         echo " <h3 style='margin-bottom:10px;'>Archivos Subidos:</h3>";
 
                         foreach ($files as $file) {
+                            // Reemplazar guiones bajos por espacios en blanco en la visualización del nombre del archivo
+                            $nombreArchivoMostrado = str_replace('_', ' ', $file);
+
                             echo "<div class='archivos_subidos'>
-                            <div><a href='$carpetaRuta/$file' download class='boton-descargar'>$file</a></div>
+                            <div><a href='$carpetaRuta/$file' download class='boton-descargar'>$nombreArchivoMostrado</a></div>
                             <div>
                             <form action='' method='POST' style='display:inline;'>
                                 <input type='hidden' name='eliminarArchivo' value='$file'>
@@ -97,21 +103,4 @@ try {
                                         <path d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3' />
                                     </svg>
                                 </button>
-                            </form>
-                        </div>
-                        </div>";
-                        }
-                    } else {
-                        echo "No se han subido archivos.";
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- <script src="parametro.js"></script> -->
-
-</body>
-
-</html>
+                            </
