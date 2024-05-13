@@ -9,3 +9,6 @@ La forma más rápida de compartir un archivo. Desde donde quieras hacia donde q
 
 ## Screenshots
 ![App Screenshot](./screenshot-1.png)
+
+## Nuevo Diseño Que permite añadir mas de un archivo al mismo tiempo. Responsive.
+![image](https://github.com/buhola/instafile_senati/assets/139522250/678865c1-d4d0-4566-aa18-f5c9167e05b2)
