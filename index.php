@@ -9,7 +9,7 @@ try {
     } else {
         $mensaje = "La carpeta '$carpetaNombre' ya existe.";
     }
-
+//skdskdkskd
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_FILES['archivos']) && is_array($_FILES['archivos']['name'])) {
             foreach ($_FILES['archivos']['name'] as $key => $nombre) {
