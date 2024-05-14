@@ -1,4 +1,3 @@
-
 // Obtén la URL actual
 const urlActual = window.location.href;
 
@@ -13,26 +12,6 @@ if (!carpetaNombre) {
     const urlConParametro = urlActual.includes("?") ? `${urlActual}&nombre=${carpetaNombre}` : `${urlActual}?nombre=${carpetaNombre}`;
     // Redirige a la nueva URL con el parámetro 'nombre'
     window.location.href = urlConParametro;
-} else {
-    // Extrae el valor del parámetro de la URL
-    const parametros = new URLSearchParams(window.location.search);
-    const carpetaNombre = parametros.get("nombre");
-
-    // Llama a la función para crear la carpeta con el nombre obtenido
-    function crearCarpeta(carpetaNombre) {
-    $.ajax({
-        url: 'crearCarpeta.php', // Ruta del archivo PHP que crea la carpeta
-        type: 'POST', // Puedes usar POST o GET según tus necesidades
-        data: { nombreCarpeta: carpetaNombre }, // Envía el nombre de la carpeta como datos
-        success: function(response) {
-            console.log('Carpeta creada.'); // Mensaje de éxito (puedes personalizarlo)
-        },
-        error: function() {
-            console.log('Error al crear la carpeta.'); // Mensaje de error (puedes personalizarlo)
-        }
-    });
-}
-    
 }
 
 // Función para generar un número aleatorio de 3 dígitos
@@ -46,84 +25,26 @@ function generarCadenaAleatoria() {
     return cadenaAleatoria;
 }
 
-
-// //BARRA DE PROGRESO 
-// function uploadFile(carpetaRuta, inputId) {
-//   var archivoInput = document.getElementById(inputId);
-//   var archivo = archivoInput.files[0];
-//   var progressBar = document.getElementById('progressBar');
-
-//   var formData = new FormData();
-//   formData.append('archivo', archivo);
-
-//   var xhr = new XMLHttpRequest();
-
-//   xhr.upload.onprogress = function (event) {
-//       if (event.lengthComputable) {
-//           var percentComplete = (event.loaded / event.total) * 100;
-//           progressBar.value = percentComplete;
-//       }
-//   };
-
-//   xhr.onload = function () {
-//       if (xhr.status === 200) {
-//           console.log('Archivo subido con éxito');
-//           // Puedes realizar acciones adicionales después de la carga aquí
-//       } else {
-//           console.error('Error al subir el archivo');
-//       }
-//   };
-
-//   xhr.open('POST', 'upload.php', true);
-//   xhr.send(formData);
-// }
-
-
-//DROP AREA
-
-// Obtén la zona de arrastre y el formulario
-const dropArea = document.getElementById('drop-area');
-const Form = document.getElementById('form');
-
-// Agrega los siguientes eventos a la zona de arrastre
-dropArea.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropArea.classList.add('drag-over');
-});
-
-dropArea.addEventListener('dragleave', () => {
-    dropArea.classList.remove('drag-over');
-});
-
-dropArea.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropArea.classList.remove('drag-over');
-    const file = e.dataTransfer.files[0];
-    handleFile(file);
-});
-
-// Función para manejar el archivo seleccionado
-function handleFile(file) {
-    if (file) {
-        // Realiza alguna acción, como mostrar el nombre del archivo
-        console.log('Archivo seleccionado:', file.name);
-
-        // También puedes realizar otras acciones, como subir el archivo al servidor
-        // Puedes agregar aquí el código para subir el archivo si lo deseas
+function handleFile(files) {
+    if (files.length > 0) {
+        for (let i = 0; i < files.length; i++) {
+            const files = e.dataTransfer.files;
+            handleFile(files);  
+        }
     }
+
+
+    fetch('index.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        // Aquí puedes mostrar un mensaje de éxito o realizar otras acciones después de la subida
+    })
+    .catch(error => {
+        console.error('Error al subir los archivos:', error);
+        // Aquí puedes mostrar un mensaje de error
+    });
 }
-
-// Agrega esta función para manejar el evento de envío del formulario
-Form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fileInput = Form.querySelector('#archivo');
-    const file = fileInput.files[0];
-    if (file) {
-        // Puedes enviar el archivo al servidor para su procesamiento aquí
-        console.log('Subir archivo:', file.name);
-    } else {
-        alert('Por favor, seleccione un archivo primero.');
-    }
-});
-
-//progres bar 

@@ -5,6 +5,9 @@
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   background: #f5f7fd;
   font-family: "Inter", sans-serif;
@@ -16,6 +19,13 @@ body {
   align-items: center;
   flex-direction: column;
   margin-top: 40px;
+  background-image: url('fondo.png'); 
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana del navegador */
+  background-position: center center; /* Centra la imagen en ambos ejes */
+  background-attachment: fixed; /* Fija la imagen de fondo para evitar que se desplace al hacer scroll */
 }
 
 .content {
@@ -23,7 +33,9 @@ body {
   background-color: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 20px;
-  width: 900px;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -31,6 +43,7 @@ h1 {
   font-size: 40px;
   text-align: center;
   margin: 20px;
+  color: #fff;
 }
 
 h3 span {
@@ -43,14 +56,16 @@ h3 span {
   height: 450px;
   max-width: 900px;
   margin-top: 20px;
-
+  flex-direction: column;
+  align-items: center;
+  height: auto;
 }
 
 .drop-area {
-  width: 435px;
+  width: 100%;
   text-align: center;
   flex: 1;
-  margin: 10px; /* Espacio entre los contenedores */
+  margin: 10px 0; /* Espacio entre los contenedores */
   border: 2px dashed #0730c5;
   box-sizing: border-box; /* El borde se incluye en el ancho y alto del contenedor */
   border-radius: 15px;
@@ -109,7 +124,6 @@ form p{
 
 .container2 {
   flex: 1;
-  margin: 10px; /* Espacio entre los contenedores */
   box-sizing: border-box; /* El borde se incluye en el ancho y alto del contenedor */
   border-radius: 15px;
   display: flex;
@@ -119,7 +133,7 @@ form p{
   background-color: #f5f7fd;
   max-height: 430px;
   overflow-y: auto;
-  width: 435px;
+  width: 100%;
 }
 
 .btn_delete{
@@ -152,9 +166,13 @@ button.btn_delete svg {
 }
 
 .beta{
-  background: #23da95;
+  background: #3823da;
   font-size: 1.2rem;
   border-radius: 6px;
   display: inline-block;
   padding: 0 12px;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
