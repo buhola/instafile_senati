@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* Estilos CSS */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +12,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #020f3c;
+  color: #fff; /* Cambiado a blanco para mejorar la visibilidad */
   text-align: center;
   display: flex;
   align-items: center;
@@ -20,10 +22,12 @@ body {
 
 .content {
   text-align: center;
-  background-color: rgb(255, 255, 255);
+  background-color: #a091c3; /* Fondo oscuro */
   padding: 20px;
   border-radius: 20px;
-  width: 900px;
+  width: 90%; /* Cambiado a porcentaje para ser responsive */
+  max-width: 900px;
+  margin: 20px; /* Añadido margen para separar del borde del cuerpo */
 }
 
 h1 {
@@ -31,23 +35,22 @@ h1 {
   font-size: 40px;
   text-align: center;
   margin: 20px;
+  color: #0c0b0b; /* Texto blanco */
 }
 
 h3 span {
-  color: #0730c5;
+  color: #0730c5; /* Color de resaltado */
 }
 .container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  height: 450px;
-  max-width: 900px;
+  justify-content: center; /* Centrar los contenedores */
   margin-top: 20px;
-
 }
 
 .drop-area {
-  width: 435px;
+  width: 100%; /* Cambiado a 100% para ser responsive */
   text-align: center;
   flex: 1;
   margin: 10px; /* Espacio entre los contenedores */
@@ -60,6 +63,7 @@ h3 span {
   align-items: center;
   position: relative;
   transition: all .1s ease-in;
+  background-color: #522f65; /* Fondo oscuro */
 }
 .drop-area:hover{
   scale: 0.995;
@@ -68,7 +72,7 @@ h3 span {
 }
 
 #form{
-  width: 350px;
+  width: 100%; /* Cambiado a 100% para ser responsive */
   height: 400px;
   position: relative;
   display: flex;
@@ -88,12 +92,12 @@ h3 span {
 }
 
 form p{
-  color: #0730c5;
+  color: #fff; /* Cambiado a blanco para mejorar la visibilidad */
 }
 
 .Btn{
   background-color: #0730c5;
-  z-index: 2; /*Superpone en el index*/
+  z-index: 2; /* Superpone en el index */
   display: flex;
   align-items: center;
   height: 30px;
@@ -104,7 +108,6 @@ form p{
   cursor: pointer;
   color: white;
   border: none;
-  
 }
 
 .container2 {
@@ -116,29 +119,44 @@ form p{
   justify-content: center;
   flex-direction: column;
   padding: 5px 20px;
-  background-color: #f5f7fd;
+  background-color: #603b74; /* Fondo oscuro */
   max-height: 430px;
   overflow-y: auto;
-  width: 435px;
+  width: 100%; /* Cambiado a 100% para ser responsive */
+  position: relative;
 }
 
-.btn_delete{
-    border: none;
-    padding: 0;
-    background: none;
-    cursor: pointer;
+.btn-abrir-directorio {
+  background-color: #0730c5;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: 10px; /* Alinea el botón con la parte inferior del contenedor */
+  right: 10px; /* Alinea el botón con el borde derecho del contenedor */
+  transition: background-color 0.3s ease;
 }
-.btn_delete:hover{
-  opacity: 0.75;
+
+.btn_delete {
+  border: 2px solid orange; /* Borde de 2px sólido naranja */
+  padding: 5px 10px; /* Ajuste del padding para mayor comodidad */
+  background: none; /* Fondo transparente */
+  color: orange; /* Texto naranja */
+  cursor: pointer;
+  border-radius: 5px; /* Borde redondeado */
+  transition: background-color 0.3s ease; /* Efecto de transición al pasar el ratón */
 }
-button.btn_delete svg {
-  stroke: #ff2b00;
+
+.btn_delete:hover {
+  background-color: rgba(255, 165, 0, 0.2); /* Cambio de color de fondo al pasar el ratón */
 }
+
 
 .archivos_subidos{
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: #634f6e; /* Fondo oscuro */
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 8px;
@@ -150,11 +168,40 @@ button.btn_delete svg {
 .archivos_subidos div {
   overflow: hidden;
 }
+.archivos_subidos a {
+  color: white; /* Cambia el color del texto a blanco */
+  font-size: 16px; /* Ajusta el tamaño del texto según tus preferencias */
+  
+}
 
 .beta{
-  background: #23da95;
+  background: #d90a0a;
   font-size: 1.2rem;
   border-radius: 6px;
   display: inline-block;
   padding: 0 12px;
+}
+
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+  .content {
+    width: 90%; /* Reducir el ancho para adaptarse a pantallas más pequeñas */
+  }
+
+  .container {
+    flex-direction: column; /* Cambiar a disposición de columna en dispositivos móviles */
+  }
+
+  .drop-area {
+    width: 90%; /* Reducir el ancho para adaptarse a pantallas más pequeñas */
+  }
+
+  #form {
+    width: 90%; /* Reducir el ancho para adaptarse a pantallas más pequeñas */
+  }
+
+  .container2 {
+    width: 90%; /* Reducir el ancho para adaptarse a pantallas más pequeñas */
+  }
 }
