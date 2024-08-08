@@ -1,23 +1,18 @@
 // Obtén la URL actual
 const urlActual = window.location.href;
 
-// Verifica si el parámetro 'nombre' ya está presente en la URL
-var parametros = new URLSearchParams(window.location.search);
-var carpetaNombre = parametros.get("nombre");
+// Extrae la última parte de la URL para determinar si ya hay un nombre de carpeta
+const urlPartes = urlActual.split('/');
+let carpetaNombre = urlPartes[urlPartes.length - 1];
 
-if (!carpetaNombre) {
-    // Si 'nombre' no está presente, genera un número aleatorio
+// Si no hay un nombre de carpeta, genera uno nuevo y redirige
+if (!carpetaNombre || carpetaNombre.includes("?")) {
     carpetaNombre = generarCadenaAleatoria();
-    // Agrega el parámetro 'nombre' a la URL
-    const urlConParametro = urlActual.includes("?") ? `${urlActual}&nombre=${carpetaNombre}` : `${urlActual}?nombre=${carpetaNombre}`;
-    // Redirige a la nueva URL con el parámetro 'nombre'
-    window.location.href = urlConParametro;
-} else {
-    // Llama a la función para crear la carpeta con el nombre obtenido
-    crearCarpeta(carpetaNombre);
+    const nuevaUrl = urlActual.endsWith('/') ? `${urlActual}${carpetaNombre}` : `${urlActual}/${carpetaNombre}`;
+    window.location.href = nuevaUrl;
 }
 
-// Función para generar un número aleatorio de 3 dígitos
+// Función para generar una cadena aleatoria
 function generarCadenaAleatoria() {
     const caracteres = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let cadenaAleatoria = '';
@@ -28,28 +23,10 @@ function generarCadenaAleatoria() {
     return cadenaAleatoria;
 }
 
-// Función para crear una carpeta utilizando AJAX
-function crearCarpeta(carpetaNombre) {
-    $.ajax({
-        url: 'crearCarpeta.php', // Ruta del archivo PHP que crea la carpeta
-        type: 'POST', // Puedes usar POST o GET según tus necesidades
-        data: { nombreCarpeta: carpetaNombre }, // Envía el nombre de la carpeta como datos
-        success: function(response) {
-            console.log('Carpeta creada.'); // Mensaje de éxito (puedes personalizarlo)
-        },
-        error: function() {
-            console.log('Error al crear la carpeta.'); // Mensaje de error (puedes personalizarlo)
-        }
-    });
-}
-
-// DROP AREA
-
-// Obtén la zona de arrastre y el formulario
+// Zona de arrastre de archivos y manejo de eventos
 const dropArea = document.getElementById('drop-area');
-const Form = document.getElementById('form');
+const form = document.getElementById('form');
 
-// Agrega los siguientes eventos a la zona de arrastre
 dropArea.addEventListener('dragover', (e) => {
     e.preventDefault();
     dropArea.classList.add('drag-over');
@@ -69,15 +46,10 @@ dropArea.addEventListener('drop', (e) => {
 // Función para manejar el archivo seleccionado
 function handleFile(file) {
     if (file) {
-        // Código para mostrar el nombre del archivo y otras acciones
-
-        // Obtener el elemento de la barra de progreso
+        console.log('Archivo seleccionado:', file.name);
         const progressBar = document.querySelector('.file-progress');
-
-        // Crear una instancia de XMLHttpRequest para subir el archivo
         const xhr = new XMLHttpRequest();
 
-        // Actualizar la barra de progreso en el evento de carga
         xhr.upload.addEventListener('progress', (event) => {
             if (event.lengthComputable) {
                 const percentComplete = (event.loaded / event.total) * 100;
@@ -87,13 +59,12 @@ function handleFile(file) {
     }
 }
 
-// Agrega esta función para manejar el evento de envío del formulario
-Form.addEventListener('submit', (e) => {
+// Maneja el envío del formulario para subir archivos
+form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const fileInput = Form.querySelector('#archivo');
+    const fileInput = form.querySelector('#archivo');
     const file = fileInput.files[0];
     if (file) {
-        // Puedes enviar el archivo al servidor para su procesamiento aquí
         console.log('Subir archivo:', file.name);
     } else {
         alert('Por favor, seleccione un archivo primero.');
