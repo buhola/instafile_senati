@@ -8,5 +8,6 @@ La forma más rápida de compartir un archivo. Desde donde quieras hacia donde q
 - Permitir cargar multiples archivos al mismo tiempo
 
 ## Nuevo Diseño Que permite añadir mas de un archivo al mismo tiempo. Responsive.
-![image](https://github.com/buhola/instafile_senati/assets/139522250/689f8225-c2f4-44a1-984c-5ab5204cdf90)
+![image](https://github.com/user-attachments/assets/39d3363c-f69a-41a7-a9b6-2dcaa38214c4)
+
 
