@@ -62,10 +62,10 @@ try {
 </head>
 <body>
     <div class="title-container">
-        <h1>Compartir archivos <sup class="beta">BETA</sup></h1>
+        <h1>Compartir archivos BY: JLBenYa <sup class="beta">BETA</sup></h1>
     </div>
     <div class="content">
-        <h3>Sube tus archivos y comparte este enlace temporal: <span>ibu.pe/<?php echo $carpetaNombre; ?></span></h3>
+        <h3>Sube tus archivos y comparte este enlace temporal: <span>grupo2caso05.store/<?php echo $carpetaNombre; ?></span></h3>
         <div class="container">
             <!-- Zona de arrastre de archivos -->
             <div class="drop-area" id="drop-area">
