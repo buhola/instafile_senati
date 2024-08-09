@@ -58,24 +58,25 @@ try {
 </head>
 
 <body>
-    <h1>Compartir archivos <sup class="beta">BETA</sup></h1>
+    <div class="header-container">
+        <h1>Compartir archivos BY:<span class="jlb"><b>JLBENYA</b></span> <sup class="beta">BETA</sup></h1>
+    </div>
     <div class="content">
-        <h3>Sube tus archivos y comparte este enlace temporal: <span>ibu.pe/<?php echo $carpetaNombre;?></span></h3>
+        <h3>Sube tus archivos y comparte este enlace temporal: <span>grupo2caso05.store/<?php echo $carpetaNombre;?></span></h3>
         <div class="container">
             <div class="drop-area" id="drop-area">
-            <form action="" id="form" method="POST" enctype="multipart/form-data">
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" style="fill:#00000;">
-                    <path d="M5 20h14v-2H5v2zm7-16l-5 5h3v7h4v-7h3l-5-5z"/>
-                </svg>
-                <br>
-                <input type="file" class="file-input" name="archivos[]" id="archivo" multiple onchange="document.getElementById('form').submit()">
-                <label>Arrastra tus archivos aquí<br>o</label>
-                <p><b>Abre el explorador</b></p> 
-            </form>
+                <form action="" id="form" method="POST" enctype="multipart/form-data">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" style="fill:#00000;">
+                        <path d="M5 20h14v-2H5v2zm7-16l-5 5h3v7h4v-7h3l-5-5z"/>
+                    </svg>
+                    <br>
+                    <input type="file" class="file-input" name="archivos[]" id="archivo" multiple onchange="document.getElementById('form').submit()">
+                    <label>Arrastra tus archivos aquí<br>o</label>
+                    <p><b>Abre el explorador</b></p> 
+                </form>
             </div>
 
             <div class="container2">               
-
                 <div id="file-list" class="pila">
                     <?php
                     $targetDir = $carpetaRuta;
@@ -117,3 +118,5 @@ try {
 </body>
 
 </html>
+
+

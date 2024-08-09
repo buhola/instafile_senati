@@ -36,13 +36,37 @@ body {
   margin: 0 auto;
 }
 
+.header-container {
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 20px; 
+}
+
 h1 {
   font-weight: 600;
   font-size: 40px;
-  text-align: center;
-  margin: 20px;
-  color: #fff;
+  margin: 0; 
+  color: #000; 
 }
+
+.jlb {
+  color: #000; 
+}
+
+.beta {
+  background: #3823da; 
+  color: #fff; 
+  font-size: 1.2rem;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 0 12px;
+}
+
 
 h3 span {
   color: #0730c5;
